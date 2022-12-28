@@ -782,7 +782,7 @@ nav .fa {
                 <div class="row" id="ContactMe">
                     <div class="flex col-md-6" id="contactLeft">
                         <p class="paragraph"><i class="fas fa-paper-plane"></i>raomegha951@gmail.com</p>
-                        <p class="paragraph"><i class="fas fa-phone-square-alt"></i>7999417143</p>
+                        <!-- <p class="paragraph"><i class="fas fa-phone-square-alt"></i>7999417143</p> -->
                         <div class="socialIcons">
                             <a href="https://www.facebook.com/megha.rao.7315"><i class="fa-brands fa-facebook-square"></i></a>
                             <a href="https://twitter.com/Kanchan9703?t=YwsxgidOanRFpErmradbrA&s=08"><i class="fa-brands fa-twitter-square"></i></a>
@@ -793,26 +793,12 @@ nav .fa {
                     </div>
                     <div class="col-md-6">
                         <div class="contactRight">
-                            <form method="POST" id="contactForm" name="insert" action="email.php">
-                                <input type="text" name="name" id="Name" placeholder="Enter Youd Name">
-                                <input type="text" name="email" id="Email" placeholder="Enter Your Email">
-                                <input type="text" name="subject" id="subject" placeholder="Enter subject">
-                                <textarea rows="5" name="massage" id="Massage" placeholder="Enter Your Massage"></textarea>
+                            <form method="POST" id="contactForm" name="insert" action="email.php" onsubmit="return submitForm(this)">
+                                <input type="text" name="name" id="Name" placeholder="Enter Youd Name" required>
+                                <input type="email" name="email" id="Email" placeholder="Enter Your Email" required>
+                                <input type="text" name="subject" id="subject" placeholder="Enter subject" required>
+                                <textarea rows="5" name="massage" id="Massage" placeholder="Enter Your Massage" required></textarea>
                                 <button type="submit" id="btmSubmit" class="btn btn2 tm-submit-btn" name="send">Submit</button>
-                                <?php
-                                if (isset($_SESSION['msg']) && $_SESSION['msg'] != '') {
-                                ?>
-                                    <script>
-                                        Swal.fire({
-                                            icon: 'error',
-                                            title: 'Oops...',
-                                            text: '<?php echo $_SESSION['msg']; ?>',
-                                        })
-                                    </script>
-                                <?php
-                                    unset($_SESSION['msg']);
-                                }
-                                ?>
                             </form>
                         </div>
                     </div>
@@ -891,7 +877,13 @@ nav .fa {
         }
     </script>
 
-    <?php include('footer.php'); ?>
+    <script>
+     $('#send').click(function() {
+
+    });
+    </script>
+
+    <!-- <-?php include('footer.php'); ?> -->
 </body>
 
 </html>
